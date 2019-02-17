@@ -1,0 +1,15 @@
+version: '3.3'
+
+services:
+  ncds_gatsby:
+    build: .
+    image: ncds_gatsby
+    container_name: ncds_gatsby
+    working_dir: /app
+    volumes:
+      - ./:/app
+    user: 1000:1000
+    command: sh -c "yarn && yarn start"
+    network_mode: host
+    env_file:
+      - .env
